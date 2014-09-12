@@ -13,7 +13,8 @@
     "docpad": "~6.64.0",
     "event-stream": "~3.1.0",
     "buffer": "~2.1.5",
-    "binary": "~0.3.0"
+    "binary": "~0.3.0",
+    "comlink2-uart": "git://github.com/bewest/comlink2-uart.git"
   },
   "devDependencies": {
     "browserify": "~3.32.0",

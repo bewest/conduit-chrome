@@ -17,6 +17,9 @@
   "usbDevices": [ {
     "vendorId": 1027,
     "productId": 32568
+  }, {
+    "vendorId": 2593,
+    "productId":32769
   } ] } ],
   "externally_connectable": {
     "ids": [ "*" ],

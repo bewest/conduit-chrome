@@ -76,4 +76,10 @@ function listener (msg) {
 chrome.app.runtime.onLaunched.addListener(function() { 
   // Tell your app what to launch and how.
   console.log('app is launched');
+  chrome.app.window.create('status.html', {
+    'bounds': {
+      'width': 400,
+      'height': 500
+    } });
+  console.log('hmm');
 });
