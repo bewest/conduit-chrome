@@ -49,14 +49,17 @@ function dispatcher (msg, port) {
     runDevices(msg, port)
   }
   if (msg.cmd == 'find') {
-    var r = new RegExp(msg.matches || "*");
+    var r = new RegExp(msg.matches || ".*");
+    console.log("MATCHES?", msg.matches, r);
     function whitelist (elem) {
+      console.log(elem);
       return elem.match(r) ? elem : null;
     }
     function paths (elem) {
-      return elem.path ? elem.path : elem
+      return elem.path ? elem.path : null;
     }
     chrome.serial.getDevices(function devices (devices) {
+      console.log('getDevices', devices);
       var matched = devices.map(paths).filter(whitelist);
       port.postMessage({ports: matched});
     });

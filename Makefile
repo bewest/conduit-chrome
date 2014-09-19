@@ -9,4 +9,4 @@ backend: lib
      -r ./lib/chrome-usb-stream.js:lib \
      -o backend/vendor/lib.js
 
-
+.PHONY: backend

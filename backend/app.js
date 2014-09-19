@@ -19,12 +19,14 @@ requestButton.addEventListener('click', function() {
     console.log('requested permit', result, arguments);
     stream = lib(lib.default_device);
     console.log(stream);
-    stream.open(console.log.bind(console, 'OPEN'));
-    var sess = comlink(stream);
-    sess.uart.open(console.log.bind(console, "OPENED"))
-      .stats(console.log.bind(console, 'STATUS'))
-      .status(console.log.bind(console, 'STATUS'))
-    ;
+    stream.open(function opened ( ) {
+      console.log('OPEN', arguments);
+      var sess = comlink(stream);
+      sess.uart.open(console.log.bind(console, "OPENED"))
+        .stats(console.log.bind(console, 'STATUS'))
+        .status(console.log.bind(console, 'STATUS'))
+      ;
+    });
     // console.log(stream);
   });
 });

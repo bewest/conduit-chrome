@@ -27,8 +27,8 @@ function dispatcher ( ) {
       var app = apps[0];
       var master = chrome.runtime.connect(app.id);
       master.onMessage.addListener(function coordinator (cmd, P) {
-        console.log("XX", "list of devices??", arguments);
         if (cmd.ports) {
+          console.log("XX", "list of devices??", cmd.ports);
           var prefix = ".tidepool-device-connect ul.devices";
           var list = $(prefix);
           var skel = $(prefix + ' li.template').clone(true);
@@ -44,7 +44,7 @@ function dispatcher ( ) {
           window.postMessage({configure: app.id}, document.documentURI);
         }
       });
-      master.postMessage({cmd: "find", matches: ".*(AsantePorter|Carelink).*"});
+      master.postMessage({cmd: "find", matches: ".*(USB|Carelink|Asante).*"});
 
     }
 
