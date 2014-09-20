@@ -99,15 +99,15 @@ $(window).on('load', function ( ) {
 
 function chat (device) {
     var stream = lib.serial(device);
-      console.log(stream);
-      console.log('howdy', "let's talk to a serial port", stream);
-      stream.open(function opened ( ) {
-        console.log('OPEN INIT READY', arguments);
-        var sess = comlink(stream);
-        sess.uart.open(console.log.bind(console, "OPENED AND STARTED"))
-          .stats(console.log.bind(console, 'STATUS'))
-          .status(console.log.bind(console, 'STATUS'))
-        ;
-      });
+    console.log(stream);
+    console.log('howdy', "let's talk to a serial port", stream);
+    stream.open(function opened ( ) {
+      console.log('OPEN INIT READY', arguments);
+      var sess = comlink(stream);
+      sess.uart.open(console.log.bind(console, "OPENED AND STARTED"))
+        .stats(console.log.bind(console, 'STATUS'))
+        .status(console.log.bind(console, 'STATUS'))
+      ;
+    });
 
 }
