@@ -31,7 +31,7 @@ function runDevices (msg, port) {
   }
   function toChrome (info) {
     if (info.connectionId == connInfo.connectionId) {
-      var blob = new Blob([info.data], {type: 'arraybuffer'});
+      var blob = new Blob([info.data]);
       var url = URL.createObjectURL(blob);
       var v = new Uint8Array(info.data);
       var view = Array.prototype.slice.apply(v);
